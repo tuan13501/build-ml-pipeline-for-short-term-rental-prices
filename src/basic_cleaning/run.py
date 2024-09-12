@@ -33,9 +33,6 @@ def go(args):
     logger.info(f"Number of rows before dropping outliers: {df.shape[0]}")
     idx_price = df['price'].between(args.min_price, args.max_price)
     df = df[idx_price].reset_index(drop=True)
-    idx = df['longitude'].between(-74.25, -
-                                  73.50) & df['latitude'].between(40.5, 41.2)
-    df = df[idx].copy()
     logger.info(f"Number of rows after dropping outliers: {df.shape[0]}")
 
     # Convert last_review to datetime
